@@ -1,39 +1,29 @@
-# UE5 Water Simulation
+# UE5 Interactive Water Simulation
 
-交互式水体模拟项目，基于 Unreal Engine 5 实现。
+基于 Unreal Engine 5 的交互式水面模拟 Demo。  
+使用 `SceneCapture2D`、`Render Target` 和材质图，实现角色 / 物体与水面的实时交互效果。
 
-## 效果概述
+## Preview
 
-基于 Compute Shader 的实时水面波动模拟，支持：
-- 鼠标交互产生涟漪
-- Flipbook 法线/高度图驱动水面细节
-- Render Target 多通道波纹传播
+![Preview](./Docs/Images/preview_01.png)
 
-## 项目结构
+## Features
 
-```
-Content/
-  WaterSimulation/          # 水体模拟核心资产
-    BP_WaterSimulation_BP   # 水体交互蓝图
-    waterplan               # 水面平面
-    Lvl_ThirdPerson         # 演示关卡
-    Function/               # 材质函数
-    Materials/              # 水面材质及实例
-    Texture/                # Flipbook纹理、Render Target
-images/                     # 效果截图
-```
+- 角色 / 物体与水面实时交互
+- SceneCapture2D 捕获交互对象
+- Render Target 记录高度场
+- 三缓冲实现波纹扩散
+- 高度图生成动态法线
+- 水面材质接入 WPO 和 Normal
 
-## 运行要求
+## Pipeline
 
-- Unreal Engine 5.3+
-- Windows 10/11
-
-## 使用
-
-1. 克隆仓库到 UE5 项目的 `Content/` 目录下
-2. 打开 `Lvl_ThirdPerson` 关卡
-3. 运行游戏，鼠标点击水面产生涟漪
-
-## License
-
-MIT
+```text
+Actor
+→ SceneCapture2D
+→ RT_Capture
+→ WaveCompute
+→ Height RT
+→ WaveSimulation
+→ WaveNormal
+→ Water Surface Material
