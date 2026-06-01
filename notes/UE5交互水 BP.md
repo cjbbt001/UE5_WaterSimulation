@@ -39,7 +39,7 @@
 - 材质按时间切换不同帧
 - 最终形成动画效果
 ## Flipbook 通用播放节点逻辑
-![](../images/Pasted image 20260427163011.png)
+![](../images/Pasted%20image%2020260427163011.png)
 
 1. 用 `TexCoord / Frames` 把整张贴图的 UV 缩小到单帧格子大小
 2. 用 `Time * Speed` 推动帧序号随时间变化
@@ -63,13 +63,13 @@
 
 # 3.抖动和接缝线问题
 - 抖动
-![](../images/Pasted image 20260427174909.png)
-![](../images/Pasted image 20260427174927.png =183)
+![](../images/Pasted%20image%2020260427174909.png)
+![](../images/Pasted%20image%2020260427174927.png)
 - 接缝
-![](../images/Pasted image 20260427175916.png)
+![](../images/Pasted%20image%2020260427175916.png)
 
 - WPO高度图
-![](../images/Pasted image 20260427180729.png =200)
+![](../images/Pasted%20image%2020260427180729.png)
 ## Flipbook 接缝线与抖动处理逻辑
 
 1. 使用 `TexCoord * TileSize` 让 Flipbook 在水面上平铺
@@ -96,7 +96,7 @@
 
 # 4.平滑动画
 
-![](../images/Pasted image 20260429143742.png)
+![](../images/Pasted%20image%2020260429143742.png)
 
 ## Flipbook 帧间插值
 
@@ -119,8 +119,8 @@
 法线贴图同样处理
 
 ## 封装Flipbook函数
-![](../images/Pasted image 20260429153644.png)
-![](../images/Pasted image 20260501161939.png)
+![](../images/Pasted%20image%2020260429153644.png)
+![](../images/Pasted%20image%2020260501161939.png)
 ### Material Function 中的显式导数开关
 
 1. 将 Flipbook 采样逻辑封装成 Material Function。
@@ -163,9 +163,9 @@
 
 ## Single Layer Water 颜色与法线控制
 
-![](../images/屏幕截图 2026-05-01 164207.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-01%20164207.png)
 
-![](../images/屏幕截图 2026-05-01 164145.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-01%20164145.png)
 
 1. 使用 `Scattering` 参数控制水体散射颜色。
 2. 将 `Scattering * Scattering Strength` 接入 `ScatteringCoefficients`。
@@ -186,7 +186,7 @@
 
 ## 使用 Height Weight 控制水面材质属性
 
-![](../images/Pasted image 20260501172018.png)
+![](../images/Pasted%20image%2020260501172018.png)
 1. 使用 `Height Weight` 作为高度权重遮罩。
 2. 将 `Height Weight` 接入 `Power` 的 `Base`。
 3. 使用 `Height Falloff` 控制 `Power` 的 `Exp`。
@@ -257,7 +257,7 @@
 - `FlattenNormal` 控制法线强度，避免动态法线过强导致水面显假。
 - 整体效果不是靠单个参数，而是靠水体颜色、法线、高光、粗糙度和高度权重共同配合。
 
-![](../images/Pasted image 20260502141319.png)
+![](../images/Pasted%20image%2020260502141319.png)
 
 # 6.纹理绘制
 ## 水面交互制作步骤  
@@ -272,8 +272,8 @@
 
 ## 创建水面交互 Actor 蓝图
 
-![](../images/屏幕截图 2026-05-03 152606.png =289)
-![](../images/屏幕截图 2026-05-03 152627.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-03%20152606.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-03%20152627.png)
 
 1. 创建一个蓝图类，并继承自 `Actor`。
 2. 在蓝图中添加 `Plane` 组件，作为水面网格。
@@ -291,8 +291,8 @@
 
 ## 创建 Render Target 权重纹理
 
-![](../images/屏幕截图 2026-05-03 153620.png)
-![](../images/屏幕截图 2026-05-03 153655.png =477)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-03%20153620.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-03%20153655.png)
 
 1. 创建一个 `Texture Render Target 2D`。
 2. 将尺寸设置为 `128 × 128`。
@@ -315,7 +315,7 @@
 
 ## 创建并赋予动态材质实例
 
-![](../images/屏幕截图 2026-05-03 161709.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-03%20161709.png)
 
 1. 打开水面 Actor 蓝图的 `Construction Script`。
 2. 从 `Plane` 组件拉出，创建 `Create Dynamic Material Instance` 节点。
@@ -372,7 +372,7 @@
 
 ## 初始化 SceneCapture 与 RT_Capture
 
-![](../images/屏幕截图 2026-05-03 183210.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-03%20183210.png)
 
 1. 在 `BeginPlay` 中使用 `Sequence` 分出初始化流程。
 2. 使用 `Clear Render Target 2D` 清空 `RT_Capture`。
@@ -412,7 +412,7 @@
 - 当前阶段它主要负责把 `RT_Capture` 转换并写入 `RT_Height_0`。
 
 ## 创建 MID_WaveCompute
-![](../images/Pasted image 20260503193912.png)
+![](../images/Pasted%20image%2020260503193912.png)
 1. 在蓝图中创建变量 `M_WaveCompute`，类型为材质引用。
 2. 将默认值设置为 `M_WaveCompute` 材质。
 3. 在 `Event Graph` 的初始化流程中创建 `Create Dynamic Material Instance`。
@@ -444,7 +444,7 @@
 - `Wrap` 会让边界外 UV 循环采样，后续如果边缘出现回绕问题需要回头检查。
 
 ## 将 WaveCompute 绘制到 RT_Height_0
-![](../images/Pasted image 20260503193846.png)
+![](../images/Pasted%20image%2020260503193846.png)
 1. 使用 `Set Texture Parameter Value`。
 2. 将 `MID_WaveCompute` 的 `Capture` 参数设置为 `RT_Capture`。
 3. 使用 `Begin Draw Canvas to Render Target`。
@@ -505,7 +505,7 @@ RT_Height_0 = Capture_1 + Capture_2 + Capture_3 + ...
 
 ## SceneCapture 跟随玩家
 
-![](../images/Pasted image 20260505214303.png)
+![](../images/Pasted%20image%2020260505214303.png)
 ### 操作
 
 1. 在蓝图中获取 `Get Player Pawn`。
@@ -563,7 +563,7 @@ RT_Height_0 = Capture_1 + Capture_2 + Capture_3 + ...
 # 8.纹理绘制处理
 ## WaveCompute 的位置参数传递
 
-![](../images/Pasted image 20260506171923.png)![](../images/Pasted image 20260506172105.png)
+![](../images/Pasted%20image%2020260506171923.png)![](../images/Pasted%20image%2020260506172105.png)
 ### 操作
 
 1. 创建 `MID_WaveCompute` 动态材质实例。
@@ -592,8 +592,8 @@ RT_Height_0 = Capture_1 + Capture_2 + Capture_3 + ...
 
 ## 蓝图变量公开与动态创建 RT
 
-![](../images/Pasted image 20260506173421.png =349)
-![](../images/Pasted image 20260506173403.png =350)
+![](../images/Pasted%20image%2020260506173421.png)
+![](../images/Pasted%20image%2020260506173403.png)
 
 ### 操作
 
@@ -622,10 +622,10 @@ RT_Height_0 = Capture_1 + Capture_2 + Capture_3 + ...
 
 ## 水面缩放后的绘制对齐问题
 
-![](../images/Pasted image 20260506174521.png =473)
-![](../images/Pasted image 20260506174813.png =470)
-![](../images/Pasted image 20260506181347.png =474)
-![](../images/Pasted image 20260506181318.png =352)
+![](../images/Pasted%20image%2020260506174521.png)
+![](../images/Pasted%20image%2020260506174813.png)
+![](../images/Pasted%20image%2020260506181347.png)
+![](../images/Pasted%20image%2020260506181318.png)
 ### 操作
 
 1. 在蓝图中获取 `Plane` 组件。
@@ -702,9 +702,9 @@ RT_Height_0 = Capture_1 + Capture_2 + Capture_3 + ...
 
 ## 波纹扩散计算逻辑
 
-![](../images/Pasted image 20260507230926.png =349)
+![](../images/Pasted%20image%2020260507230926.png)
 
-![](../images/Pasted image 20260507230149.png =346)
+![](../images/Pasted%20image%2020260507230149.png)
 
 ### 操作
 
@@ -799,11 +799,11 @@ RT（Render Target）可以理解为运行时动态更新的贴图。
 
 ## 三张 RT 的轮换逻辑
 
-![](../images/屏幕截图 2026-05-07 234632.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-07%20234632.png)
 
-![](../images/屏幕截图 2026-05-07 235038.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-07%20235038.png)
 
-![](../images/屏幕截图 2026-05-07 235624.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-07%20235624.png)
 ### 操作
 
 1. 创建三张高度 RT：
@@ -875,7 +875,7 @@ RT（Render Target）可以理解为运行时动态更新的贴图。
 
 ## 基于帧率控制波纹模拟执行次数
 
-![](../images/屏幕截图 2026-05-22 163350.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-22%20163350.png)
 ### 操作
 
 1. 在每帧 Tick 中，将变量 `Frame Rate` 加上 `Delta Seconds`，结果写回 `Frame Rate`。
@@ -896,9 +896,9 @@ RT（Render Target）可以理解为运行时动态更新的贴图。
 
 # 11. 高度图转法线：有限差分法
 
-![](../images/屏幕截图 2026-05-23 165529.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-23%20165529.png)
 
-![](../images/屏幕截图 2026-05-23 161534.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-23%20161534.png)
 ## 作用
 
 从 Height RT 生成法线，驱动水面光照凹凸。
@@ -1113,13 +1113,13 @@ Normal = Normalize(Cross(Tangent_X, Tangent_Y))
 
 ## SceneDepth 转下压高度
 
-![](../images/屏幕截图 2026-05-29 203921.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-29%20203921.png)
 
-![](../images/屏幕截图 2026-05-29 202100.png =697)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-29%20202100.png)
 
-![](../images/屏幕截图 2026-05-29 202307.png =697)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-29%20202307.png)
 
-![](../images/屏幕截图 2026-05-29 203847.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-29%20203847.png)
 
 ### 操作
 
@@ -1182,8 +1182,8 @@ Normal = Normalize(Cross(Tangent_X, Tangent_Y))
 
 # 14.实现不同物体交互
 
-![](../images/屏幕截图 2026-05-29 231646.png)
-![](../images/屏幕截图 2026-05-29 232750.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-29%20231646.png)
+![](../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-05-29%20232750.png)
 ## 初始化捕获对象
 
 ### 操作
