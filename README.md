@@ -5,7 +5,7 @@
 
 ## Preview
 
-![Demo](./Images/demo.gif)
+![Demo](./images/demo.gif)
 
 ## Features
 
