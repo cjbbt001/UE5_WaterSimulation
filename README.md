@@ -5,7 +5,7 @@
 
 ## Preview
 
-![Preview](./Docs/Images/preview_01.png)
+![Demo](./Images/demo.gif)
 
 ## Features
 
